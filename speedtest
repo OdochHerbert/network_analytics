@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+import speedtest
+import pandas as pd
+import datetime
+import time
+
+def measure_bandwidth():
+    st = speedtest.Speedtest(secure=True)
+    st.get_best_server()
+    download_speed = st.download() / 1024 / 1024  # Convert to Mbps
+    upload_speed = st.upload() / 1024 / 1024  # Convert to Mbps
+    print(upload_speed)
+    return download_speed, upload_speed
+
+def main():
+    data = []
+    while True:
+        timestamp = datetime.datetime.now()
+        download_speed, upload_speed = measure_bandwidth()
+        data.append([timestamp, download_speed, upload_speed])
+        time.sleep(10)  # Measure every 10 seconds
+
+        if len(data) >= 5:  # Stop after one month (adjust as needed)
+            break
+
+    df = pd.DataFrame(data, columns=["Timestamp", "Download (Mbps)", "Upload (Mbps)"])
+    df.to_csv("bandwidth_data.csv", index=False)
+
+if __name__ == "__main__":
+    main()
+
