@@ -1,4 +1,4 @@
-# network_analytics
+# Speed Tester
 Analysis of network devices
 #linux python installation
 for linux refer to file python_installation-linux in installations folder
