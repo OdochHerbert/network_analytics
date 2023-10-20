@@ -1,3 +1,6 @@
+**Speed Test**
+AUTHOR: ODOCH HERBERT
+
 **Libraries Imported**
 
     speedtest: This is a library that allows you to test your internet speed using the Speedtest.net infrastructure.
