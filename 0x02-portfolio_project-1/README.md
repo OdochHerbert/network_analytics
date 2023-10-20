@@ -11,4 +11,5 @@ Author: **ODOCH HERBERT**
 3--The flask framework is made to listen to port **5007**
 
 **4**-- From the folder containing the 0-server_api file run **python3 0-server_api.py**
-5-- Open another terminal and access the api using **curl 127.0.0.1:5007/statistics**
+
+**5**-- Open another terminal and access the api using **curl 127.0.0.1:5007/statistics**
