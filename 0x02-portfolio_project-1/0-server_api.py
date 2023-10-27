@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 from flask import Flask, jsonify
 import subprocess
 
@@ -39,6 +38,17 @@ def get_network_statistics():
     command = "netstat -s"
     network_statistics = run_command(command)
     return jsonify({'network_statistics': network_statistics})
-
+#GEtting info from pyhton code
+# Example route to get network interfaces
+@app.route('/code', methods=['GET'])
+def get_print():
+    command = "sudo python macs_usage.py"
+    code = run_command(command)
+    return jsonify(code)
+@app.route('/bandwidth_monitor', methods=['GET'])
+def get_band_monitor():
+      command = 'sudo iftop -t -s 10'
+      bandwidth_usage =  run_command(command)
+      return jsonify(bandwidth_usage)
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0', port=5007)  # Set the port to 5007
+    app.run(debug=True, port=5007)  # Set the port to 5007
